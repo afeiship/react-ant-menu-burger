@@ -1,63 +1,56 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import noop from '@jswork/noop';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import noop from 'noop';
-import objectAssign from 'object-assign';
-import { Icon } from 'antd';
+import ReactToggle from '@jswork/react-toggle';
 
 const CLASS_NAME = 'react-ant-menu-burger';
 
-export default class extends Component {
-  /*===properties start===*/
+export default class ReactAntMenuBurger extends ReactToggle {
+  static displayName = CLASS_NAME;
+  static version = '__VERSION__';
   static propTypes = {
+    /**
+     * The extended className for component.
+     */
     className: PropTypes.string,
+    /**
+     * If onClick works.
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Default value.
+     */
     value: PropTypes.bool,
-    onChange: PropTypes.func
+    /**
+     * The change handler.
+     */
+    onChange: PropTypes.func,
+    /**
+     * The menu fold/unfold elements.
+     */
+    elements: PropTypes.array
   };
 
   static defaultProps = {
     value: false,
-    onChange: noop
+    disabled: false,
+    onChange: noop,
+    elements: []
   };
-  /*===properties end===*/
 
-  constructor(inProps) {
-    super(inProps);
-    const { value } = inProps;
-    this.state = { value };
+  get index() {
+    const { value } = this.state;
+    return +value;
   }
-
-  componentWillUpdate(inProps) {
-    const { value } = inProps;
-    if (value !== this.state.value) {
-      this.change(value);
-    }
-  }
-
-  change(inValue, inCallback) {
-    const callback = inCallback || noop;
-    const target = { value: inValue };
-    const { onChange } = this.props;
-    this.setState(target, () => {
-      onChange({ target });
-      callback();
-    });
-  }
-
-  _onClick = (e) => {
-    this.change(!this.state.value);
-  };
 
   render() {
-    const { className, value, ...props } = this.props;
+    const { elements, ...props } = this.props;
     return (
-      <a
-        onClick={this._onClick}
-        className={classNames(CLASS_NAME, className)}
-        {...props}>
-        <Icon type={this.state.value ? 'menu-unfold' : 'menu-fold'} />
-      </a>
+      <span
+        onClick={this.handleClick}
+        children={elements[this.index]}
+        {...props}
+      />
     );
   }
 }

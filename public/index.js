@@ -1,18 +1,23 @@
-import ReactAntMenuBurger from '../src/main';
-import ReactDOM from 'react-dom';
+import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactAntMenuBurger from '../src/main';
+import ReactAdminIcons from '@jswork/react-admin-icons';
 import './assets/style.scss';
 
 class App extends React.Component {
-  _onChange = (e) => {
-    const value = e.target.value;
-    console.log('new value:->', value);
-  };
   render() {
     return (
-      <div className="app-container">
-        <ReactAntMenuBurger onChange={this._onChange} />
-      </div>
+      <ReactDemokit
+        className="p-3 app-container"
+        url="https://github.com/afeiship/react-ant-menu-burger">
+        <ReactAntMenuBurger
+          elements={[
+            <ReactAdminIcons value="shrink-right" />,
+            <ReactAdminIcons value="spread-left" />
+          ]}
+        />
+      </ReactDemokit>
     );
   }
 }

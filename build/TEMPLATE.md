@@ -12,12 +12,7 @@ npm install -S @jswork/react-ant-menu-burger
 ```
 
 ## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
-| onChange  | func   | false    | noop    | The change handler.                   |
-
+__GENERATE_DOCS__
 
 ## usage
 1. import css
@@ -32,27 +27,7 @@ npm install -S @jswork/react-ant-menu-burger
   ```
 2. import js
   ```js
-  import ReactDemokit from '@jswork/react-demokit';
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import ReactAntMenuBurger from '@jswork/react-ant-menu-burger';
-  import './assets/style.scss';
-
-  class App extends React.Component {
-    render() {
-      return (
-        <ReactDemokit
-          className="p-3 app-container"
-          url="https://github.com/afeiship/react-ant-menu-burger">
-          <ReactAntMenuBurger className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
-        </ReactDemokit>
-      );
-    }
-  }
-
-  ReactDOM.render(<App />, document.getElementById('app'));
-
+__GENERATE_DAPP__
   ```
 
 ## documentation
