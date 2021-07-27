@@ -15,8 +15,10 @@ npm install -S @jswork/react-ant-menu-burger
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
+| disabled  | bool   | false    | false   | If onClick works.                     |
+| value     | bool   | false    | false   | Default value.                        |
 | onChange  | func   | false    | noop    | The change handler.                   |
+| elements  | array  | false    | []      | The menu fold/unfold elements.        |
 
 
 ## usage
@@ -36,6 +38,7 @@ npm install -S @jswork/react-ant-menu-burger
   import React from 'react';
   import ReactDOM from 'react-dom';
   import ReactAntMenuBurger from '@jswork/react-ant-menu-burger';
+  import ReactAdminIcons from '@jswork/react-admin-icons';
   import './assets/style.scss';
 
   class App extends React.Component {
@@ -44,8 +47,12 @@ npm install -S @jswork/react-ant-menu-burger
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-ant-menu-burger">
-          <ReactAntMenuBurger className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
+          <ReactAntMenuBurger
+            elements={[
+              <ReactAdminIcons value="shrink-right" />,
+              <ReactAdminIcons value="spread-left" />
+            ]}
+          />
         </ReactDemokit>
       );
     }

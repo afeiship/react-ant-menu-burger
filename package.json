@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-ant-menu-burger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A hamburger for menu expand/collapse.",
   "main": "dist/index.js",
   "scripts": {
@@ -20,17 +20,10 @@
     "url": "git+https://github.com/afeiship/react-ant-menu-burger.git"
   },
   "keywords": [
-    "boilerplate",
     "react",
-    "component",
-    "cra",
-    "template",
-    "webpack",
-    "sass",
-    "scss",
-    "docs",
-    "service-worker",
-    "sw"
+    "ant",
+    "menu",
+    "burger"
   ],
   "author": "afei",
   "license": "MIT",
